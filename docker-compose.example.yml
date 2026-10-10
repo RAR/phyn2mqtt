@@ -1,0 +1,12 @@
+services:
+  phyn2mqtt:
+    build: .
+    restart: unless-stopped
+    environment:
+      PHYN_HOST: 192.168.1.50          # your Phyn Plus (give it a DHCP reservation)
+      PHYN_INTERVAL: 10                # seconds between reads
+      PHYN_HA_DISCOVERY: 1             # publish Home Assistant discovery (read-only sensors)
+      MQTT_HOST: mqtt.local
+      MQTT_PORT: 1883
+      MQTT_USERNAME: phyn2mqtt
+      MQTT_PASSWORD: change-me
